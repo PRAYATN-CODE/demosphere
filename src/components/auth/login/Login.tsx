@@ -27,6 +27,7 @@ import { Input } from "@/components/ui/input"
 
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 import { authApi } from "@/lib/api"
+import { useEffect, useState } from "react"
 
 /* ----------------------------------
    VALIDATION
@@ -40,7 +41,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>
 
 /* ----------------------------------
-   PAGE
+PAGE
 ----------------------------------- */
 
 export default function Login() {
@@ -48,6 +49,11 @@ export default function Login() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const redirectTo = searchParams.get("redirect") || "/packages"
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, [])
 
     const form = useForm<LoginFormValues>({
         resolver: zodResolver(loginSchema),
@@ -70,7 +76,7 @@ export default function Login() {
             if (data?.token) {
                 localStorage.setItem("auth_token", data.token)
             }
-            
+
             // On successful login
             router.push(redirectTo)
         } catch (error: any) {
@@ -91,8 +97,10 @@ export default function Login() {
         }
     }
 
+    const Wrapper = isMobile ? "div" : BackgroundBeamsWithCollision
+
     return (
-        <BackgroundBeamsWithCollision className="min-h-dvh">
+        <Wrapper className="min-h-dvh">
             <div className="relative z-10 flex min-h-dvh items-center justify-center px-4 w-full">
                 <Card className="w-full max-w-lg rounded-2xl border-border bg-background/80 backdrop-blur shadow-xl">
                     <CardHeader className="text-center space-y-2">
@@ -185,6 +193,6 @@ export default function Login() {
                     </CardContent>
                 </Card>
             </div>
-        </BackgroundBeamsWithCollision>
+        </Wrapper>
     )
 }

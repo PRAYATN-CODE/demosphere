@@ -28,7 +28,6 @@ import {
     InputOTPSlot,
 } from "@/components/ui/input-otp"
 
-import { AuroraBackground } from "@/components/ui/aurora-background"
 import { Input } from "@/components/ui/input"
 import { authApi } from "@/lib/api"
 import Link from "next/link"
@@ -109,7 +108,7 @@ export default function VerifyOtp() {
     }
 
     return (
-        <AuroraBackground className="min-h-dvh px-4 sm:px-6">
+        <div className="min-h-dvh px-4 sm:px-6">
             <div className="relative z-10 flex min-h-dvh items-center justify-center">
                 <Card className="w-full max-w-sm sm:max-w-md rounded-2xl shadow-xl border-border bg-background/80 backdrop-blur">
 
@@ -220,7 +219,7 @@ export default function VerifyOtp() {
                     </CardContent>
                 </Card>
             </div>
-        </AuroraBackground>
+        </div>
 
     )
 }

@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input"
 import { BackgroundLines } from "@/components/ui/background-lines"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { authApi } from "@/lib/api"
+import { useEffect, useState } from "react"
 
 /* ----------------------------------
    VALIDATION SCHEMA (FULL)
@@ -89,8 +90,17 @@ export default function Signup() {
             console.error("Signup error:", error)
         }
     }
+
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, [])
+
+    const Wrapper = isMobile ? "div" : BackgroundLines
+
     return (
-        <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
+        <Wrapper className="flex items-center justify-center w-full flex-col px-4">
             <div className="relative z-10 grid min-h-dvh grid-cols-1 lg:grid-cols-2 max-w-full w-full overflow-y-auto">
 
                 {/* LEFT – FORM */}
@@ -235,6 +245,6 @@ export default function Signup() {
 
 
             </div>
-        </BackgroundLines>
+        </Wrapper>
     )
 }

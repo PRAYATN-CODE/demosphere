@@ -136,13 +136,16 @@ export default function GallerySection() {
                                             src={item.src}
                                             controls
                                             autoPlay
+                                            playsInline
                                             className="w-full h-auto rounded-2xl"
                                         />
                                     ) : (
                                         <>
-                                            <video
-                                                src={item.src}
-                                                muted
+                                            <Image
+                                                src="https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" // thumbnail
+                                                alt="Video preview"
+                                                width={800}
+                                                height={600}
                                                 className="w-full h-auto object-cover"
                                             />
                                             <button
@@ -155,6 +158,7 @@ export default function GallerySection() {
                                     )}
                                 </div>
                             )}
+
                         </div>
                     ))}
                 </div>

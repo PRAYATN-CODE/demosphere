@@ -21,7 +21,7 @@ export default function HeroSection() {
             {/* This pattern uses your theme's muted color for subtle lines */}
             <AnimatedGridPattern
                 className={cn(
-                    "mask-image:radial-gradient(600px_circle_at_center,white,transparent)",
+                    "hidden md:block mask-image:radial-gradient(600px_circle_at_center,white,transparent)",
                     "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
                     // Using tailwind classes that map to your CSS variables
                     "fill-muted stroke-muted-foreground/20"

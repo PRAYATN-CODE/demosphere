@@ -24,13 +24,15 @@ export default function HomePage() {
     return (
         <main className="relative flex min-h-dvh flex-col items-center justify-center overflow-x-hidden bg-background">
             <HeroSection />
-            <Particles
-                className="absolute inset-0 z-0"
-                quantity={200}
-                ease={60}
-                color={color}
-                refresh
-            />
+            <div className="hidden md:block absolute inset-0 z-0">
+                <Particles
+                    className="absolute inset-0 z-0"
+                    quantity={200}
+                    ease={60}
+                    color={color}
+                    refresh
+                />
+            </div>
             <WhyDamosphereSection />
             <ExperiencesSection />
             <PackagesSection />

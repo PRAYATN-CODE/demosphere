@@ -8,7 +8,7 @@ import { Meteors } from "../ui/meteors"
 export default function LocationSection() {
     return (
         <section id="location" className="relative py-28">
-            <Meteors number={25} angle={205} />
+            <Meteors number={25} angle={205} className="hidden md:block" />
             <div className="mx-auto max-w-7xl px-6 space-y-16">
 
                 {/* HEADER */}

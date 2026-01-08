@@ -33,10 +33,10 @@ export function Navbar() {
             <div
                 className={cn(
                     "flex h-16 items-center justify-between",
-                    "transition-all duration-1000 ease-in-out",
+                    "transition-all duration-300 md:duration-1000 ease-in-out",
                     "rounded-2xl w-full",
                     scrolled
-                        ? "max-w-[95%] md:max-w-[60%] bg-background/90 backdrop-blur-md border border-border shadow-md px-6 mt-4"
+                        ? "max-w-[95%] md:max-w-[60%] bg-background/90 md:backdrop-blur-md border border-border md:shadow-md px-6 mt-4"
                         : "max-w-7xl bg-transparent px-6"
                 )}
             >
@@ -60,7 +60,7 @@ export function Navbar() {
 
                 {/* ACTIONS */}
                 <div className="flex items-center gap-3">
-                    <AnimatedThemeToggler className="w-5 h-5" duration={500} />
+                    <AnimatedThemeToggler className="w-4 h-4 mr-4" duration={1500} />
 
                     {/* DESKTOP CTA */}
                     <Button asChild size="sm" className="rounded-xl">
